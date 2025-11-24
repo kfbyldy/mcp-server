@@ -1,0 +1,109 @@
+输入: {"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{"tools":true,"prompts":false,"resources":false,"logging":false,"roots":{"listChanged":false}},"clientInfo":{"name":"cursor-vscode","version":"1.0.0"}},"jsonrpc":"2.0","id":0}
+输出: {"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2024-11-05","capabilities":{"experimental":{},"prompts":{"listChanged":false},"resources":{"subscribe":false,"listChanged":false},"tools":{"listChanged":false}},"serverInfo":{"name":"mcp-server","version":"1.6.0"}}}
+
+输入: {"method":"notifications/initialized","jsonrpc":"2.0"}
+输入: {"method":"tools/list","jsonrpc":"2.0","id":1}
+输出: {"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+     {"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可 以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period   Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输入: {"method":"tools/call","params":{"name":"add_index_data","arguments":{"system_code":"PARK6788_EMS01","device_code":"GCCCS_GCCCS01","index_code":"EelecUseD","period_type":"DAY","time_period":"2025-06-01 00:00:00","data_value":123.11},"_meta":{"progressToken":2}},"jsonrpc":"2.0","id":2}
+输出: {"jsonrpc":"2.0","id":2,"result":{"content":[{"type":"text","text":"\n数据添加成功!\n系统编码: PARK6788_EMS01\n设备编码: GCCCS_GCCCS01\n测点编码: EelecUseD\n时间类型: DAY\n数据值: 123.11\n添加的时间点数量: 1\n时间点样例: 1748707200\n"}],"isError":false}}
+
+输入: {"method":"tools/call","params":{"name":"add_index_data","arguments":{"system_code":"PARK6788_EMS01","device_code":"GCCCS_GCCCS01","index_code":"EelecUseD","period_type":"DAY","time_period":"2025-05-01 00:00:00~2025-05-05 00:00:00","data_value":123.111},"_meta":{"progressToken":3}},"jsonrpc":"2.0","id":3}
+输出: {"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"text","text":"\n数据添加成功!\n系统编码: PARK6788_EMS01\n设备编码: GCCCS_GCCCS01\n测点编码: EelecUseD\n时间类型: DAY\n数据值: 123.111\n添加的时间点数量: 5\n时间点样例: 1746028800, 1746115200, 1746201600 ...\n"}],"isError":false}}
+
+输入: {"method":"notifications/initialized","jsonrpc":"2.0"}
+输入: {"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{"tools":true,"prompts":true,"resources":true,"logging":false,"elicitation":{},"roots":{"listChanged":false}},"clientInfo":{"name":"cursor-vscode","version":"1.0.0"}},"jsonrpc":"2.0","id":0}
+输入: {"method":"notifications/initialized","jsonrpc":"2.0"}
+输入: {"method":"tools/list","params":{},"jsonrpc":"2.0","id":1}
+输出: {"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输入: {"method":"tools/list","jsonrpc":"2.0","id":1}
+输出: {"jsonrpc":"2.0","id":1,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输入: {"method":"tools/list","jsonrpc":"2.0","id":2}
+输入: {"method":"tools/list","jsonrpc":"2.0","id":3}
+输出: {"jsonrpc":"2.0","id":2,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输出: {"jsonrpc":"2.0","id":3,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":4}
+输出: {"jsonrpc":"2.0","id":4,"result":{"prompts":[]}}
+
+输出: {"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2024-11-05","capabilities":{"experimental":{},"prompts":{"listChanged":false},"resources":{"subscribe":false,"listChanged":false},"tools":{"listChanged":false}},"serverInfo":{"name":"mcp-server","version":"1.6.0"}}}
+
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":5}
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":6}
+输出: {"jsonrpc":"2.0","id":5,"result":{"prompts":[]}}
+
+输出: {"jsonrpc":"2.0","id":6,"result":{"prompts":[]}}
+
+输入: {"method":"notifications/initialized","jsonrpc":"2.0"}
+输入: {"method":"resources/list","jsonrpc":"2.0","id":7}
+输入: {"method":"tools/list","jsonrpc":"2.0","id":8}
+输入: {"method":"tools/list","jsonrpc":"2.0","id":9}
+--- STDIN stream closed to target ---
+输出: {"jsonrpc":"2.0","id":7,"result":{"resources":[]}}
+
+输出: {"jsonrpc":"2.0","id":8,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输出: {"jsonrpc":"2.0","id":9,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输出: {"jsonrpc":"2.0","id":0,"result":{"protocolVersion":"2024-11-05","capabilities":{"experimental":{},"prompts":{"listChanged":false},"resources":{"subscribe":false,"listChanged":false},"tools":{"listChanged":false}},"serverInfo":{"name":"mcp-server","version":"1.6.0"}}}
+
+输入: {"method":"resources/list","jsonrpc":"2.0","id":10}
+输入: {"method":"resources/list","jsonrpc":"2.0","id":11}
+输出: {"jsonrpc":"2.0","id":10,"result":{"resources":[]}}
+
+输出: {"jsonrpc":"2.0","id":11,"result":{"resources":[]}}
+
+输入: {"method":"notifications/initialized","jsonrpc":"2.0"}
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":12}
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":13}
+输出: {"jsonrpc":"2.0","id":12,"result":{"prompts":[]}}
+
+输出: {"jsonrpc":"2.0","id":13,"result":{"prompts":[]}}
+
+--- STDIN stream closed to target ---
+输入: {"method":"tools/list","jsonrpc":"2.0","id":14}
+输入: {"method":"tools/list","jsonrpc":"2.0","id":15}
+输入: {"method":"tools/list","jsonrpc":"2.0","id":16}
+输入: {"method":"tools/list","jsonrpc":"2.0","id":17}
+输出: {"jsonrpc":"2.0","id":14,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输出: {"jsonrpc":"2.0","id":15,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输出: {"jsonrpc":"2.0","id":16,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输出: {"jsonrpc":"2.0","id":17,"result":{"tools":[{"name":"add_index_data","description":"\n向大数据平台添加指标数据\n\nArgs:\n    system_code: 系统编码，例如 \"PARK3853_EMS01\"\n    device_code: 设备编码，例如 \"CEC_CEC01\" \n    index_code: 测点编码，例如 \"FfuelIntD\"\n    period_type: 时间类型，可选值: \"REAL_TIME\"(实时), \"MINUTE\"(分钟), \"HOUR\"(小时), \"DAY\"(日), \"MONTH\"(月), \"YEAR\"(年)\n    time_period: 时间周期，使用完整的年月日时分秒格式，可以是单个时间、时间列表或时间范围\n                 例如: \"2023-01-01 00:00:00\"、\"2023-01-01 00:00:00,2023-01-02 00:00:00\"、\"2023-01-01 00:00:00~2023-01-10 00:00:00\"\n    data_value: 数据值，浮点数\n\nReturns:\n    操作结果信息\n","inputSchema":{"properties":{"system_code":{"title":"System Code","type":"string"},"device_code":{"title":"Device Code","type":"string"},"index_code":{"title":"Index Code","type":"string"},"period_type":{"title":"Period Type","type":"string"},"time_period":{"title":"Time Period","type":"string"},"data_value":{"title":"Data Value","type":"number"}},"required":["system_code","device_code","index_code","period_type","time_period","data_value"],"title":"add_index_dataArguments","type":"object"}}]}}
+
+输入: {"method":"resources/list","jsonrpc":"2.0","id":18}
+输入: {"method":"resources/list","jsonrpc":"2.0","id":19}
+输出: {"jsonrpc":"2.0","id":18,"result":{"resources":[]}}
+
+输出: {"jsonrpc":"2.0","id":19,"result":{"resources":[]}}
+
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":20}
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":21}
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":22}
+输入: {"method":"prompts/list","jsonrpc":"2.0","id":23}
+输出: {"jsonrpc":"2.0","id":20,"result":{"prompts":[]}}
+
+输出: {"jsonrpc":"2.0","id":21,"result":{"prompts":[]}}
+
+输出: {"jsonrpc":"2.0","id":22,"result":{"prompts":[]}}
+
+输出: {"jsonrpc":"2.0","id":23,"result":{"prompts":[]}}
+
+输入: {"method":"resources/list","jsonrpc":"2.0","id":24}
+输入: {"method":"resources/list","jsonrpc":"2.0","id":25}
+输入: {"method":"resources/list","jsonrpc":"2.0","id":26}
+输入: {"method":"resources/list","jsonrpc":"2.0","id":27}
+输出: {"jsonrpc":"2.0","id":24,"result":{"resources":[]}}
+
+输出: {"jsonrpc":"2.0","id":25,"result":{"resources":[]}}
+
+输出: {"jsonrpc":"2.0","id":26,"result":{"resources":[]}}
+
+输出: {"jsonrpc":"2.0","id":27,"result":{"resources":[]}}
+

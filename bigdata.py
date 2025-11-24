@@ -6,7 +6,7 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP("weather")
 
 # Constants
-NWS_API_BASE = "http://uds-index-platform.test.fnwintranet.com/index/result/update"
+NWS_API_BASE = "https://api.weather.gov"
 USER_AGENT = "weather-app/1.0"
 
 

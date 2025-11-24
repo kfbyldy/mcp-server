@@ -5,10 +5,11 @@ import httpx
 from mcp.server.fastmcp import FastMCP
 
 # 初始化FastMCP服务器
-mcp = FastMCP("mcp-server")
+mcp = FastMCP("mcp-server", log_level="ERROR")
 
 # 常量定义
 API_BASE_URL = "http://uds-index-platform.test.fnwintranet.com/index/result/update"
+
 USER = "test"  # 固定值
 
 # 时间类型映射，用于生成合适的时间戳
@@ -243,7 +244,7 @@ async def add_index_data(
     data_value: float
 ) -> str:
     """
-    向大数据平台添加测点数据
+    向大数据平台添加指标数据
     
     Args:
         system_code: 系统编码，例如 "PARK3853_EMS01"
@@ -352,11 +353,11 @@ async def main():
     )
     print(result)
 
-if __name__ == "__main__":
-    asyncio.run(main()) 
-
-
 # if __name__ == "__main__":
-#     # 初始化并运行服务器
-#     print("启动MCP服务器...")
-#     mcp.run(transport='stdio')
+#     asyncio.run(main())
+
+
+if __name__ == "__main__":
+    # 初始化并运行服务器
+    print("启动MCP服务器...")
+    mcp.run(transport='stdio')
