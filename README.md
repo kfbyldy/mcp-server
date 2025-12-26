@@ -1,5 +1,12 @@
 # MCP服务器项目
 
+## 运行方式
+1.  uv run .\mcp_server.py 
+2. 直接运行当前文件
+3. postman 中 uv --directory E:\Code\python\mcp\mcp-server run .\weather.py
+3. 报错：Python 启动时，在处理 distutils-precedence.pth 这个启动配置文件时，
+尝试 import _distutils_hack，但 这个模块不存在，于是启动失败。解决方法： 删除.venv 执行 uv sync
+
 ## 项目介绍
 这是一个基于MCP (Model Control Protocol) 的服务器项目，用于与大数据平台交互。项目主要提供以下功能：
 
